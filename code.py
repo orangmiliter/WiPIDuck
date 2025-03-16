@@ -10,7 +10,7 @@ from adafruit_httpserver import Server, Request, JSONResponse, POST, Response
 
 
 ssid = "PicoTes"
-password = "picotest"
+password = "wifiduck123"
 
 wifi.radio.stop_station()
 wifi.radio.start_ap(ssid, password)
@@ -115,7 +115,7 @@ def hid_execute(hidScript):
         print("Update your payload and start again!")
 
 def handle_index_html(request):
-    with open("indexOld.html", "r") as file:
+    with open("index.html", "r") as file:
         index_html_content = file.read()
     return Response(request, body=index_html_content, headers={"Content-Type": "text/html"})
 
