@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, minimal-ui">
+  <meta name="theme-color" content="#36393E">
+
+  <meta name="description" content="WiFi Duck">
+  <title>PICO Duck | About</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="../index.html">PICO Duck</a></li>
+      <li><a href="">How to Work</a></li>
+    </ul>
+  </nav>
+  <div id="status"></div>
+  <main>
+    <section>
+                <!--<h1>Documentation</h1>-->
+<!--                <h2>Scripting</h2>-->
+                <h3>Mnemonic Table</h3>
+                <table id="ducky-functions-table">
+                    <thead>
+                        <tr>
+                            <th>Mnemonic</th>
+                            <th>Description</th>
+                            <th>example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>WAIT</code></td>
+                            <td>It add time in the code.<br> Time is in milliseconds.<br> 1000 ms = 1 second.</td>
+                          <td><code>WAIT 1000</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>TYPE</code></td>
+                            <td>It add text want to type in the code</td>
+                          <td><code>TYPE Hello World!</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>LOOP</code></td>
+                          <td>It runs commands for a certain number of times.<br>Synatx is <code>LOOP number-of-times commands</code></td>
+                            <td><code>LOOP 3<br>TYPE Hello World!<br>EXIT</code>
+                            <br><br>
+                              <code>LOOP 4<br>TAB<br>EXIT</code><br><br>
+                              <code>LOOP 1 <br> CTRL S <br> EXIT </code><br><br>
+                              <code>LOOP 1 <br> CTRL SHIFT N <br> EXIT </code>
+                            </td>
+                        </tr>
+                    <tr>
+                      <td><code>INF</code></td>
+                      <td>It run commans infinitely. <br>
+                      Syntax <code>INF commands</code></td>
+                      <td><code>INF <br> TYPE Hello World! <br>EXIT</code><br><br>
+                      <code>INF <br> TAB <br> EXIT</code>
+                      </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3>Basics</h3>
+                <p>
+                    Keys are separated by a single space.<br>
+                    Everything written in a single line gets pressed and released at the same time.<br>
+                    To write text, use the TYPE function.<br><br>
+                  <code>-</code> It is used to put the cursor in the next line. <br>It is only used with <code>TYPE</code> <br>
+                  Example : <code>TYPE Hello World!-</code> <br>
+                  If <code>TYPE</code> contain any command and then <code>-</code> then it run automatically without <code>ENTER</code> key.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Example</th>
+                            <th>Explanation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GUI r</td>
+                            <td>Press the Windows key and the r key simultaneously</td>
+                        </tr>
+                        <tr>
+                            <td>TYPE Hello World!</td>
+                            <td>Write Hello World!</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Functions</h3>
+                <table id="ducky-functions-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>REM</code></td>
+                            <td><code>REM Hello World!</code></td>
+                            <td>Comment</td>
+                        </tr>
+                        <tr>
+                            <td><code>DEFAULTDELAY</code> or <code>DEFAULT_DELAY</code></td>
+                            <td><code>DEFAULTDELAY 200</code></td>
+                            <td>Time in ms between every command</td>
+                        </tr>
+                        <tr>
+                            <td><code>DELAY</code></td>
+                            <td><code>DELAY 1000</code></td>
+                            <td>Delay in ms</td>
+                        </tr>
+                        <tr>
+                            <td><code>STRING</code></td>
+                            <td><code>STRING Hello World!</code></td>
+                            <td>Types the following string</td>
+                        </tr>
+                        <tr>
+                            <td><code>REPEAT</code> or <code>REPLAY</code></td>
+                            <td><code>REPEAT 3</code></td>
+                            <td>Repeats the last command n times</td>
+                        </tr>
+                        <tr>
+                            <td><code>LOCALE</code></td>
+                            <td><code>LOCALE DE</code></td>
+                            <td>Sets the keyboard layout. Available: <code>DE</code>, <code>GB</code>, <code>US</code>, <code>ES</code>, <code>FR</code>, <code>DK</code>, <code>RU</code>, <code>BE</code>, <code>PT</code>, <code>IT</code>, <code>SK</code>, <code>CZ</code>, <code>SI</code>, <code>BG</code>, <code>CA-FR</code>, <code>CH-DE</code>, <code>CH-FR</code>, <code>HU</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>KEYCODE</code></td>
+                            <td><code>KEYCODE 0x02 0x04</code></td>
+                            <td>Types a specific key code (modifier, key1[, ..., key6]) in decimal or hexadecimal</td>
+                        </tr>
+                        <tr>
+                            <td><code>LED</code></td>
+                            <td><code>LED 40 20 10</code></td>
+                            <td>Changes the color of the LED in decimal RGB values (0-255)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                      <h3>Standard Keys</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>a</code> - <code>z</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>A</code> - <code>Z</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>0</code> - <code>9</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>F1</code> - <code>F12</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+      <h3>Navigation Keys</h3>
+      <table>
+        <tbo>
+          <tr>
+            <td><code>LEFT UP RIGHT DOWN TAB HOME END PGUP PGDN</code></td>
+          </tr>
+        </tbo>
+      </table>
+
+      <h3>Lock Keys</h3>
+      <tab>
+        <tbo>
+          <tr>
+            <td><code>CAPS NUM SCROLL</code></td>
+          </tr>
+        </tbo>
+      </tab>
+
+      <h3>System and GUI Keys</h3>
+      <tab>
+        <tbo>
+          <tr>
+            <td><code>GUI ESC PRTSCR PAUSE</code></td>
+          </tr>
+        </tbo>
+      </tab>
+      <h3>Editing Keys</h3>
+      <tab>
+        <tbo>
+          <tr>
+            <td><code>INSERT DEL BKSP ENTER</code></td>
+          </tr>
+        </tbo>
+      </tab>
+      <h3>Modifier Keys</h3>
+      <tab>
+        <tbo>
+          <tr>
+            <td><code>CTRL SHIFT ALT</code></td>
+          </tr>
+        </tbo>
+      </tab>
+      <h3>ASCII Characters</h3>
+      <tabl>
+        <tbo>
+          <tr><td><code>` ! @ # $ % ^ & * ( ) - = [ ] \ ; ' , . / SPACE ~ _ + { } | : " < > ? 0 1 2 3 4 5 6 7 8 9</code></td></tr>
+        </tbo>
+      </tabl>
+                <h3>Example</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Open notepad and type Hello World</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>WAIT 1000 <br>
+                            GUI R <br>
+                            WAIT 1000 <br>
+                            TYPE notepad <br>
+                            WAIT 1000 <br>
+                            ENTER <br>
+                            WAIT 1000 <br>
+                            TYPE Hello World!</code></td>
+                        </tr>
+
+                    </tbody>
+                  <thead>
+                        <tr>
+                            <th>Open CMD as Adminstrator Mode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>WAIT 1000 <br>
+                            GUI <br>
+                            WAIT 1000 <br>
+                            TYPE cmd <br>
+                            WAIT 1000 <br>
+                            RIGHT<br>
+                            WAIT 1000<br>
+                            DOWN <br>
+                            WAIT 1000 <br>
+                            ENTER <br>
+                            WAIT 1000 <br>
+                            LEFT <br>
+                            WAIT 1000 <br>
+                            ENTER <br>
+                            WAIT 1000 <br>
+                            TYPE ipconfig</code></td>
+                        </tr>
+
+                    </tbody>
+                  <thead>
+                        <tr>
+                            <th>Create A New Folder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code> WAIT 1000 <br>
+                              GUI E <br>
+                              WAIT 1000 <br>
+                            CTRL SHIFT N <br>
+                            WAIT 1200 <br>
+                            TYPE hello <br>
+                            WAIT 2100 <br>
+                            ENTER</code></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+  </main>
+  <footer>
+    <a href="https://github.com/orangmiliter/WiPIDuck" target="_blank">Source</a>
+    <br><br>
+    <span id="version"></span><br>
+    Copyright (c) 2025 penguingaruda<br>
+    <a href="https://penguingaruda.my.id" target="_blank">penguingaruda</a>
+  </footer>
+</body>
+
+</html>

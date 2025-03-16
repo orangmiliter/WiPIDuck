@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, minimal-ui">
+        <meta name="theme-color" content="#36393E">
+
+        <meta name="description" content="WiFi Duck">
+        <title>PICO Duck</title>
+
+        <link rel="stylesheet" type="text/css" href="web/style.css">
+    </head>
+    <body>
+        <script>
+            function sendHttpRequest(data) {
+                console.log(data);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://192.168.4.1/execute", true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        console[xhr.status === 200 ? 'log' : 'error'](
+                            xhr.status === 200 ? "Request sent successfully!" : "Request failed. Status: " + xhr.status
+                        );
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
+
+            function main() {
+                var content = document.getElementById("editor").value;
+                sendHttpRequest({ username: "Payload", content: content });
+            }
+
+            function handleFileSelect(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('editor').value = event.target.result;
+                };
+                reader.readAsText(file);
+            }
+
+            function saveFile() {
+                var content = document.getElementById("editor").value;
+                var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+                var link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "payload.txt";
+                link.click();
+            }
+
+            function clearTextArea() {
+                document.getElementById("editor").value = '';
+            }
+
+            function triggerFileInput() {
+                document.getElementById('fileInput').click();
+            }
+        </script>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">PICO Duck</a></li>
+                <li><a href="web/howto.html">How to Work</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section>
+                <h1>Editor <a class="reload" id="editorReload">&#x21bb;</a></h1>
+                <div class="row">
+                    <textarea class="smooth" id="editor"></textarea>
+                </div>
+                <div class="row">
+                    <div id="editor-primary-buttons">
+                        <button class="warn" onclick="main()">run</button>
+                        <button class="primary" onclick="triggerFileInput()">upload</button>
+                        <input type="file" id="fileInput" onchange="handleFileSelect(event)">
+                        <button class="success" onclick="saveFile()">save</button>
+                        <button class="danger" onclick="clearTextArea()">clear</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <a href="https://github.com/orangmiliter/WiPIDuck" target="_blank">Source</a>
+            <br><br>
+            <span id="version"></span><br>
+            Copyright (c) 2025 penguingaruda<br>
+            <a href="https://penguingaruda.my.id" target="_blank">penguingaruda</a>
+        </footer>
+    </body>
+</html>
