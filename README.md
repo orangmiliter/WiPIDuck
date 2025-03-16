@@ -2,22 +2,22 @@
 Raspberry Pi Pico W | Wireless keystroke injection attack
 
 ## Credits
-- Thank for CSS Style and Template [Spacehuhn](https://github.com/SpacehuhnTech).
-- Implementation of using wifi duck on Raspberry Pi Pico W [dbisu](https://github.com/dbisu).
-- `code.py` and `index.html`, thanks for [PicoWQuack](https://github.com/wirebits/PicoWQuack/)
+> - Thank for CSS Style and Template [Spacehuhn](https://github.com/SpacehuhnTech).
+> - Implementation of using wifi duck on Raspberry Pi Pico W [dbisu](https://github.com/dbisu).
+> - `code.py` and `index.html`, thanks for [PicoWQuack](https://github.com/wirebits/PicoWQuack/)
 
 ## Features
-- Responsive Web Interface
-- Simple and clean webpage for type mnemonics.
-- Run Button - Run typed mnemonics.
-- Upload Button - Upload .txt files which contain mnemonics to run.
-- Save Button - Save typed mnemonics on the system.
-- Clear Button - Clears the text area.
+> - Responsive Web Interface
+> - Simple and clean webpage for type mnemonics.
+> - Run Button - Run typed mnemonics.
+> - Upload Button - Upload .txt files which contain mnemonics to run.
+> - Save Button - Save typed mnemonics on the system.
+> - Clear Button - Clears the text area.
 
 ## Getting Started
 ### Requirement
-- Raspberry Pi Pico W
-- Micro-USB Cable
+> - Raspberry Pi Pico W
+> - Micro-USB Cable
 ### Installation
 > #### 1. Install CircuitPython:
 > - Download latest version [here](https://circuitpython.org/board/raspberry_pi_pico_w/)
