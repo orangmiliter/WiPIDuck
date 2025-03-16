@@ -32,6 +32,7 @@ Raspberry Pi Pico W | Wireless keystroke injection attack
 > - Done!, now you can connect to the `SSID : PicoTes` and `password : wifiduck123`
 > - if you add `boot.py`, then pico will not be detected as a storage media. if it has already happened you can reset pico in the following [guide](https://github.com/dbisu/pico-ducky/blob/main/RESET.md)
 > #### Full Install Instructions [here](https://github.com/dbisu/pico-ducky?tab=readme-ov-file#full-install-instructions)
+> #### easy way, download and extract the [file](https://github.com/orangmiliter/WiPIDuck/releases/tag/Latest) then move it to RPI Pico after reboot when inserting the .uf2 file
 
 ### Usage
 1. Connect RPI Pico W to the target system.
